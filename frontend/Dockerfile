@@ -18,6 +18,6 @@ COPY nginx /etc/nginx
 
 # Define a URL fixa do backend diretamente no config.json
 CMD echo '{
-    "BACKEND_URL": "https://services-ticketz-backend.frujoj.easypanel.host/"
+    "BACKEND_URL": "https://services-ticketz-backend.frujoj.easypanel.host"
 }' > /var/www/public/config.json \
     && nginx -g "daemon off;"
