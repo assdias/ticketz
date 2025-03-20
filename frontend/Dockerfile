@@ -16,8 +16,4 @@ COPY --from=build-deps /usr/src/app/build /var/www/public
 COPY --from=build-deps /usr/src/app/node_modules/@socket.io/admin-ui/ui/dist /var/www/public/socket-admin
 COPY nginx /etc/nginx
 
-# Define a URL fixa do backend diretamente no config.json
-CMD echo '{
-    "BACKEND_URL": "https://services-ticketz-backend.frujoj.easypanel.host"
-}' > /var/www/public/config.json \
-    && nginx -g "daemon off;"
+CMD sh -c 'echo "{ \"BACKEND_URL\": \"https://services-ticketz-backend.frujoj.easypanel.host\" }" > /var/www/public/config.json && nginx -g "daemon off;"'
